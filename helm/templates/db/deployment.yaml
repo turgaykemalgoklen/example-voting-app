@@ -19,6 +19,14 @@ spec:
       containers:
       - image: "{{ .Values.db.image.repository }}:{{ .Values.db.image.tag }}"
         name: {{ include "voting-app.db.name" . }}
+        env:
+        - name: POSTGRES_USER
+          value: postgres
+        - name: POSTGRES_PASSWORD
+          value: postgres
+        service:
+          type: ClusterIP
+          port: 5432
         volumeMounts:
         - mountPath: /var/lib/postgresql/data
           name: db-data
