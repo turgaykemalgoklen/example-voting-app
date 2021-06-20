@@ -47,11 +47,10 @@ db:
     tag: 9.4
     pullPolicy: IfNotPresent
   env:
-  - name: 
-    valueFrom:
-      secretKeyRef:
-        name: postgresql
-        key: POSTGRES_PASSWORD
+  - name: POSTGRES_USER
+    value: postgres
+  - name: POSTGRES_PASSWORD
+    value: postgres
   service:
     type: ClusterIP
     port: 5432
