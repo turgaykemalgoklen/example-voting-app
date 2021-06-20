@@ -1,0 +1,7 @@
+helm upgrade --install voting helm --namespace voting-app \
+  --set vote.image.repository=475366352022.dkr.ecr.us-east-1.amazonaws.com/voting-app \
+  --set vote.image.tag=vote-{{BUILD_NUMBER}} \
+  --set worker.image.repository=475366352022.dkr.ecr.us-east-1.amazonaws.com/voting-app \
+  --set worker.image.tag=worker-{{BUILD_NUMBER}} \
+  --set result.image.repository=475366352022.dkr.ecr.us-east-1.amazonaws.com/voting-app \
+  --set result.image.tag=result-{{BUILD_NUMBER}}
