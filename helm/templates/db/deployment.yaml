@@ -24,9 +24,6 @@ spec:
           value: postgres
         - name: POSTGRES_PASSWORD
           value: postgres
-        service:
-          type: ClusterIP
-          port: 5432
         volumeMounts:
         - mountPath: /var/lib/postgresql/data
           name: db-data
