@@ -17,6 +17,6 @@ spec:
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
       containers:
-      - image: {{ .Values.worker.image.repository }}
-        imagePullPolicy: {{ .Values.worker.image.pullPolicy }}
-        name: {{ include "voting-app.worker.name" . }}
+        - name: {{ include "voting-app.worker.name" . }}
+          image: "{{ .Values.worker.image.repository }}:{{ .Values.worker.image.tag }}"
+          imagePullPolicy: {{ .Values.worker.image.pullPolicy }}
